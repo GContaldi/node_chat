@@ -1,7 +1,11 @@
 {
   "extends": "airbnb",
-  "globals": {},
+  "globals": {
+    "expect": true
+  },
   "env": {
+    "browser": true,
+    "node": true,
     "mocha": true
   },
   "rules": {
@@ -52,6 +56,10 @@
 
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    "react/prop-types": ["error", { "ignore": ["key"], "customValidators": [] }]
+    "react/prop-types": ["error", { "ignore": ["key"], "customValidators": [] }],
+
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
