@@ -9,7 +9,10 @@ import Message from '../../../src/app/components/Message';
 
 describe('Chat', () => {
   let chatNode;
-  const MESSAGES = ['a', 'b', 'c'];
+  const MESSAGES = [
+    { username: '1', text: 'a' },
+    { username: '2', text: 'b' }
+  ];
 
   before(() => {
     const store = fakeStore({ messages: MESSAGES });
@@ -24,7 +27,8 @@ describe('Chat', () => {
 
     it('renders the Message components properly', () => {
       chatNode.find(Message).forEach((node, index) => {
-        expect(node.prop('text')).to.equal(MESSAGES[index]);
+        expect(node.prop('text')).to.equal(MESSAGES[index].text);
+        expect(node.prop('username')).to.equal(MESSAGES[index].username);
       });
     });
   });

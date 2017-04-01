@@ -9,7 +9,7 @@ const Chat = (props) => (
     <div className="messages">
       {
         props.messages.map((message, index) => (
-          <Message key={index} text={message} />
+          <Message key={index} username={message.username} text={message.text} />
         ))
       }
     </div>
@@ -18,7 +18,9 @@ const Chat = (props) => (
 );
 
 Chat.propTypes = {
-  messages: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+  messages: React.PropTypes.arrayOf(
+    React.PropTypes.shape(Message.propTypes)
+  ).isRequired
 };
 
 const mapStateToProps = (state) => {
