@@ -25,9 +25,9 @@ describe('reducer', () => {
 
   describe('when adding a new message', () => {
     it('adds the new message in the list of messages', () => {
-      const TEXT = 'new message';
-      const actionPayload = addMessage(TEXT);
-      expect(reducer(INITIAL_STATE, actionPayload).messages).to.eql([TEXT]);
+      const MESSAGE = { username: 'me', text: 'new message' };
+      const actionPayload = addMessage(MESSAGE);
+      expect(reducer(INITIAL_STATE, actionPayload).messages).to.eql([MESSAGE]);
     });
   });
 

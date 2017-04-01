@@ -16,7 +16,7 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case UPDATE_MESSAGE:
-      return updateState(state, { newMessage: action.message });
+      return updateState(state, { newMessage: action.messageText });
     case SEND_MESSAGE:
       return updateState(state, { newMessage: '' });
     case ADD_MESSAGE:
