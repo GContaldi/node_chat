@@ -2,12 +2,12 @@ const path = require('path');
 
 const BASE_PATH = __dirname;
 const APP_FOLDER_NAME = 'src/app';
-const ASSETS_FOLDER_NAME = 'assets';
+const PUBLIC_FOLDER_NAME = 'public';
 
 module.exports = {
   entry: path.resolve(BASE_PATH, APP_FOLDER_NAME, 'index'),
   output: {
-    path: path.resolve(BASE_PATH, ASSETS_FOLDER_NAME),
+    path: path.resolve(BASE_PATH, PUBLIC_FOLDER_NAME),
     filename: 'client.js'
   },
   module: {
