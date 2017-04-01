@@ -5,7 +5,7 @@ const socketIO = require('socket.io');
 const DEFAULT_PORT = 5000;
 
 const app = express();
-const io = socket(app);
+const io = socketIO(app);
 
 app.set('port', (process.env.PORT || DEFAULT_PORT));
 
