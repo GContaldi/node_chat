@@ -19,7 +19,8 @@ const reducer = (state, action) => {
       return updateState(state, { newMessage: action.message });
     case ADD_MESSAGE:
       return updateState(state, {
-        messages: state.messages.concat([action.message])
+        messages: state.messages.concat([state.newMessage]),
+        newMessage: ''
       });
     default:
       return state;

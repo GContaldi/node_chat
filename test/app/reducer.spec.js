@@ -26,9 +26,12 @@ describe('reducer', () => {
   describe('when adding a new message', () => {
     it('adds the new message in the list of messages', () => {
       const TEXT = 'new message';
-      const actionPayload = addMessage(TEXT);
-      const newState = reducer(INITIAL_STATE, actionPayload);
-      expect(newState.messages).to.eql([TEXT]);
+      const STATE = Object.assign(INITIAL_STATE, { newMessage: TEXT });
+      const actionPayload = addMessage();
+      expect(reducer(STATE, actionPayload)).to.eql({
+        messages: [TEXT],
+        newMessage: ''
+      });
     });
   });
 });

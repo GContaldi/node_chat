@@ -5,6 +5,6 @@ export const updateMessage = (message) => {
   return { type: UPDATE_MESSAGE, message };
 };
 
-export const addMessage = (message) => {
-  return { type: ADD_MESSAGE, message };
+export const addMessage = () => {
+  return { type: ADD_MESSAGE };
 };
