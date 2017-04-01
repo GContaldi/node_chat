@@ -8,8 +8,14 @@ const Footer = (props) => {
 
   return (
     <div data-component="Footer" className="footer">
-      <input type="text" value={props.message} placeholder="Write here...." onChange={handleChange} />
-      <button className="btn" onClick={handleClick}>Send</button>
+      <input
+        data-element="input"
+        type="text"
+        value={props.message}
+        placeholder="Write here...."
+        onChange={handleChange}
+      />
+      <button data-element="button" className="btn" onClick={handleClick}>Send</button>
     </div>
   );
 };

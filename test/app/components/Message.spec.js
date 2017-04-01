@@ -14,10 +14,12 @@ describe('Message', () => {
   });
 
   describe('when renders', () => {
-    it('renders a message', () => {
-      expect(
-        component.find('[data-component="Message"]').text()
-      ).to.equal(`${USERNAME}: ${TEXT}`);
+    it('renders the username', () => {
+      expect(component.find('[data-element="username"]').text()).to.equal(`${USERNAME} wrote:`);
+    });
+
+    it('renders the username', () => {
+      expect(component.find('[data-element="text"]').text()).to.equal(TEXT);
     });
   });
 });

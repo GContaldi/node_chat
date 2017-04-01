@@ -66,3 +66,9 @@
   font-weight: bold;
   cursor: default;
 }
+
+.username {
+  margin-bottom: 0.3em;
+  font-size: 0.7em;
+  color: gray;
+}

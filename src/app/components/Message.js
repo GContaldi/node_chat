@@ -1,7 +1,10 @@
 import React from 'react';
 
 const Message = (props) => (
-  <div data-component="Message" className="message">{props.username}: {props.text}</div>
+  <div data-component="Message" className="message">
+    <div data-element="username" className="username">{props.username} wrote:</div>
+    <div data-element="text">{props.text}</div>
+  </div>
 );
 
 Message.propTypes = {

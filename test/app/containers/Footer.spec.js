@@ -12,6 +12,9 @@ import Footer from '../../../src/app/containers/Footer';
 chai.use(sinonChai);
 
 describe('Footer', () => {
+  const INPUT_SELECTOR = '[data-element="input"]';
+  const BUTTON_SELECTOR = '[data-element="button"]';
+
   let footerNode;
   const MESSAGE = 'my message';
   const dispatch = sinon.spy();
@@ -24,18 +27,18 @@ describe('Footer', () => {
 
   describe('when renders', () => {
     it('renders an input text with the message', () => {
-      expect(footerNode.find('input').prop('value')).to.eql(MESSAGE);
+      expect(footerNode.find(INPUT_SELECTOR).prop('value')).to.eql(MESSAGE);
     });
 
     it('renders a button', () => {
-      expect(footerNode.find('button').text()).to.eql('Send');
+      expect(footerNode.find(BUTTON_SELECTOR).text()).to.eql('Send');
     });
   });
 
   describe('when the button is clicked', () => {
     it('calls the dispatcher with the correct payload', () => {
       dispatch.reset();
-      footerNode.find('button').simulate('click');
+      footerNode.find(BUTTON_SELECTOR).simulate('click');
       expect(dispatch).to.have.been.calledOnce;
       expect(dispatch).to.have.been.calledWith(sendMessage(MESSAGE));
     });
@@ -46,7 +49,7 @@ describe('Footer', () => {
       dispatch.reset();
       const TEXT = 'my text...';
 
-      footerNode.find('input').simulate('change', {
+      footerNode.find(INPUT_SELECTOR).simulate('change', {
         target: { value: TEXT }
       });
 
