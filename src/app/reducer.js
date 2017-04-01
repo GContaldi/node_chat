@@ -1,4 +1,4 @@
-import { UPDATE_MESSAGE, ADD_MESSAGE } from './actions';
+import { UPDATE_MESSAGE, SEND_MESSAGE, ADD_MESSAGE } from './actions';
 
 const INITIAL_STATE = {
   messages: [],
@@ -17,10 +17,11 @@ const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_MESSAGE:
       return updateState(state, { newMessage: action.message });
+    case SEND_MESSAGE:
+      return updateState(state, { newMessage: '' });
     case ADD_MESSAGE:
       return updateState(state, {
-        messages: state.messages.concat([action.message]),
-        newMessage: ''
+        messages: state.messages.concat([action.message])
       });
     default:
       return state;
