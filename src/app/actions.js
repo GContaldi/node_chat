@@ -1,15 +1,24 @@
-export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
-export const SEND_MESSAGE = 'server/SEND_MESSAGE';
-export const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
+const SEND_MESSAGE = 'server/SEND_MESSAGE';
+const ADD_MESSAGE = 'ADD_MESSAGE';
 
-export const updateMessage = (messageText) => {
+const updateMessage = (messageText) => {
   return { type: UPDATE_MESSAGE, messageText };
 };
 
-export const sendMessage = (messageText) => {
+const sendMessage = (messageText) => {
   return { type: SEND_MESSAGE, messageText };
 };
 
-export const addMessage = (message) => {
+const addMessage = (message) => {
   return { type: ADD_MESSAGE, message };
+};
+
+module.exports = {
+  UPDATE_MESSAGE,
+  SEND_MESSAGE,
+  ADD_MESSAGE,
+  updateMessage,
+  sendMessage,
+  addMessage
 };

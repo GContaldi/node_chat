@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const http = require('http');
+const { Server } = require('http');
 const socketIO = require('socket.io');
 
 const actions = require('./app/actions');
@@ -8,7 +8,7 @@ const actions = require('./app/actions');
 const DEFAULT_PORT = 5000;
 
 const app = express();
-const server = http.Server(app); // eslint-disable-line new-cap
+const server = Server(app); // eslint-disable-line new-cap
 const io = socketIO(server);
 
 app.set('port', (process.env.PORT || DEFAULT_PORT));
