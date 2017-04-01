@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateMessage, addMessage } from '../actions';
+import { updateMessage, sendMessage } from '../actions';
 
 const Footer = (props) => {
-  const handleChange = (event) => props.onInputChange(event.target.value);
+  const handleChange = (event) => { props.onInputChange(event.target.value); };
+  const handleClick = props.onButtonClick.bind(null, props.message);
 
   return (
     <div data-component="Footer" className="footer">
       <input type="text" value={props.message} onChange={handleChange} />
-      <button onClick={props.onButtonClick}>Send</button>
+      <button onClick={handleClick}>Send</button>
     </div>
   );
 };
@@ -28,8 +29,8 @@ const mapDispatchToProps = (dispatch) => {
     onInputChange: (message) => {
       dispatch(updateMessage(message));
     },
-    onButtonClick: () => {
-      dispatch(addMessage());
+    onButtonClick: (message) => {
+      dispatch(sendMessage(message));
     }
   };
 };

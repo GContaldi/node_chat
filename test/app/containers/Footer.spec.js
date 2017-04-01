@@ -6,7 +6,7 @@ import sinonChai from 'sinon-chai';
 import sinon from 'sinon';
 import fakeStore from '../../helpers/fakeStore';
 
-import { updateMessage, addMessage } from '../../../src/app/actions';
+import { updateMessage, sendMessage } from '../../../src/app/actions';
 import Footer from '../../../src/app/containers/Footer';
 
 chai.use(sinonChai);
@@ -33,16 +33,16 @@ describe('Footer', () => {
   });
 
   describe('when the button is clicked', () => {
-    it('calls the dispatcher the correct payload', () => {
+    it('calls the dispatcher with the correct payload', () => {
       dispatch.reset();
       footerNode.find('button').simulate('click');
       expect(dispatch).to.have.been.calledOnce;
-      expect(dispatch).to.have.been.calledWith(addMessage());
+      expect(dispatch).to.have.been.calledWith(sendMessage(MESSAGE));
     });
   });
 
   describe('when the input is changed', () => {
-    it('the onInputChange function gets called', () => {
+    it('calls the dispatcher with the correct patyload', () => {
       dispatch.reset();
       const TEXT = 'my text...';
 
