@@ -44,6 +44,7 @@
 .footer > .btn {
   background: white;
   width: 10%;
+  min-width: 3.5em;
   border-bottom: 2px solid orange;
   cursor: pointer;
 }
