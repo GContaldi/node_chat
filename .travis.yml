@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - '6'
+addons:
+  code_climate:
+    repo_token: 1033de53b8616cf4dbf10a4e228b3a58a053bdc48c9cd8117e4c2de1ebb7b618
 install:
 - yarn
 cache:

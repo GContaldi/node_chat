@@ -1,4 +1,9 @@
-# Simple chat app ![](https://travis-ci.org/GContaldi/node_chat.svg?branch=master)
+![Travis CI](https://travis-ci.org/GContaldi/node_chat.svg?branch=master)
+[![Code Climate](https://codeclimate.com/github/GContaldi/node_chat/badges/gpa.svg)](https://codeclimate.com/github/GContaldi/node_chat)
+[![Test Coverage](https://codeclimate.com/github/GContaldi/node_chat/badges/coverage.svg)](https://codeclimate.com/github/GContaldi/node_chat/coverage)
+[![Issue Count](https://codeclimate.com/github/GContaldi/node_chat/badges/issue_count.svg)](https://codeclimate.com/github/GContaldi/node_chat)
+
+# Simple chat app
 
 This is a simple chat app implemented using `nodeJS` and `ReactJS`.
 It uses also: `webpack`, `express`, `yarn`, `socket.io`.

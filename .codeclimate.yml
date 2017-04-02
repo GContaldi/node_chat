@@ -1,0 +1,10 @@
+---
+  engines:
+    csslint:
+      enabled: true
+    eslint:
+      enabled: true
+  ratings:
+    paths:
+      - "**.js"
+      - "**.css"
