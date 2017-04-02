@@ -3,8 +3,18 @@ import { connect } from 'react-redux';
 import { updateMessage, sendMessage } from '../actions';
 
 const Footer = (props) => {
-  const handleChange = (event) => { props.onInputChange(event.target.value); };
-  const handleClick = props.onButtonClick.bind(null, props.message);
+  const handleClick = () => {
+    if (props.message !== '') {
+      props.onButtonClick(props.message);
+    }
+  };
+
+  const handleChange = (event) => {
+    const message = event.target.value.trim();
+    if (message !== '') {
+      props.onInputChange(message);
+    }
+  };
 
   return (
     <div data-component="Footer" className="footer">
