@@ -18,7 +18,7 @@ describe('Message', () => {
       expect(component.find('[data-element="username"]').text()).to.equal(`${USERNAME} wrote:`);
     });
 
-    it('renders the username', () => {
+    it('renders the text', () => {
       expect(component.find('[data-element="text"]').text()).to.equal(TEXT);
     });
   });
