@@ -4,6 +4,11 @@
       enabled: true
     eslint:
       enabled: true
+      # https://github.com/codeclimate/codeclimate-eslint/issues/90#issuecomment-222284370
+      channel: "eslint-2"
+      checks:
+      import/no-unresolved:
+        enabled: false
   ratings:
     paths:
       - "**.js"
