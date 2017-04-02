@@ -2,17 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateMessage, sendMessage } from '../actions';
 
+
 const Footer = (props) => {
+  const isMessageEmpty = () => (props.message.trim() === '');
+
   const handleClick = () => {
-    const message = props.message.trim();
-    if (message !== '') {
-      props.onButtonClick(message);
+    if (isMessageEmpty()) {
+      return;
     }
+    props.onButtonClick(props.message.trim());
   };
 
   const handleChange = (event) => {
     props.onInputChange(event.target.value);
   };
+
+  const buttonClasses = isMessageEmpty() ? 'btn btn-disabled' : 'btn';
 
   return (
     <div data-component="Footer" className="footer">
@@ -23,7 +28,11 @@ const Footer = (props) => {
         placeholder="Write here...."
         onChange={handleChange}
       />
-      <button data-element="button" className="btn" onClick={handleClick}>Send</button>
+      <button
+        data-element="button"
+        className={buttonClasses}
+        onClick={handleClick}
+      >Send</button>
     </div>
   );
 };

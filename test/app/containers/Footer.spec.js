@@ -35,6 +35,13 @@ describe('Footer', () => {
     it('renders a button', () => {
       expect(footerNode.find(BUTTON_SELECTOR).text()).to.eql('Send');
     });
+
+    describe('when the input is empty', () => {
+      it('renders the button as disabled', () => {
+        init('');
+        expect(footerNode.find(BUTTON_SELECTOR).hasClass('btn-disabled')).to.equal(true);
+      });
+    });
   });
 
   describe('when the button is clicked', () => {

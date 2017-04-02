@@ -29,3 +29,4 @@ const reducer = (state, action) => {
 };
 
 export default reducer;
+export { INITIAL_STATE };

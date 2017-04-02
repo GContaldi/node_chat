@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import fakeStore from '../../helpers/fakeStore';
 
+import { INITIAL_STATE } from '../../../src/app/reducer';
 import Chat from '../../../src/app/containers/Chat';
 import Message from '../../../src/app/components/Message';
 
@@ -15,7 +16,8 @@ describe('Chat', () => {
   ];
 
   before(() => {
-    const store = fakeStore({ messages: MESSAGES });
+    const state = Object.assign({}, INITIAL_STATE, { messages: MESSAGES });
+    const store = fakeStore(state);
     const wrapper = mount(<Provider store={store}><Chat /></Provider>);
     chatNode = wrapper.find('[data-component="Chat"]');
   });
