@@ -44,8 +44,8 @@ describe('Footer', () => {
       footerNode.find(BUTTON_SELECTOR).simulate('click');
     };
 
-    it('calls the dispatcher with the correct payload', () => {
-      clickButton(MESSAGE);
+    it('calls the dispatcher with the correct payload, with the trimmed message', () => {
+      clickButton(`  ${MESSAGE}  `);
 
       expect(dispatch).to.have.been.calledOnce;
       expect(dispatch).to.have.been.calledWith(sendMessage(MESSAGE));
@@ -61,25 +61,13 @@ describe('Footer', () => {
   });
 
   describe('when the input is changed', () => {
-    const changeInputWith = (value) => {
-      dispatch.reset();
-      footerNode.find(INPUT_SELECTOR).simulate('change', { target: { value } });
-    };
-
     it('calls the dispatcher with the correct payload', () => {
-      const TEXT = '  my text...  ';
-      changeInputWith(TEXT);
+      const TEXT = 'my text...';
+      dispatch.reset();
+      footerNode.find(INPUT_SELECTOR).simulate('change', { target: { value: TEXT } });
 
       expect(dispatch).to.have.been.calledOnce;
-      expect(dispatch).to.have.been.calledWith(updateMessage(TEXT.trim()));
-    });
-
-    describe('when the input value is empty', () => {
-      it('the dispatcher is not called', () => {
-        changeInputWith('');
-
-        expect(dispatch).to.not.have.been.calledOnce;
-      });
+      expect(dispatch).to.have.been.calledWith(updateMessage(TEXT));
     });
   });
 });

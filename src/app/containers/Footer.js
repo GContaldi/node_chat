@@ -4,16 +4,14 @@ import { updateMessage, sendMessage } from '../actions';
 
 const Footer = (props) => {
   const handleClick = () => {
-    if (props.message !== '') {
-      props.onButtonClick(props.message);
+    const message = props.message.trim();
+    if (message !== '') {
+      props.onButtonClick(message);
     }
   };
 
   const handleChange = (event) => {
-    const message = event.target.value.trim();
-    if (message !== '') {
-      props.onInputChange(message);
-    }
+    props.onInputChange(event.target.value);
   };
 
   return (
