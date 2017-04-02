@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateMessage, sendMessage } from '../actions';
 
+const ENTER_KEY_CODE = 13;
 
 const Footer = (props) => {
   const isMessageEmpty = () => (props.message.trim() === '');
@@ -17,6 +18,12 @@ const Footer = (props) => {
     props.onInputChange(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.which === ENTER_KEY_CODE) {
+      handleClick();
+    }
+  };
+
   const buttonClasses = isMessageEmpty() ? 'btn btn-disabled' : 'btn';
 
   return (
@@ -27,6 +34,7 @@ const Footer = (props) => {
         value={props.message}
         placeholder="Write here...."
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
       />
       <button
         data-element="button"

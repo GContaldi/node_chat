@@ -59,15 +59,17 @@ describe('Footer', () => {
     });
 
     describe('when the newMessage is empty', () => {
-      it('the dispatcher is not called', () => {
-        clickButton('');
+      before(clickButton.bind(null, ''));
 
+      it('the dispatcher is not called', () => {
         expect(dispatch).to.not.have.been.calledOnce;
       });
     });
   });
 
   describe('when the input is changed', () => {
+    before(init.bind(null, MESSAGE));
+
     it('calls the dispatcher with the correct payload', () => {
       const TEXT = 'my text...';
       dispatch.reset();
@@ -75,6 +77,19 @@ describe('Footer', () => {
 
       expect(dispatch).to.have.been.calledOnce;
       expect(dispatch).to.have.been.calledWith(updateMessage(TEXT));
+    });
+  });
+
+  describe('when the user press the "enter" key', () => {
+    before(init.bind(null, MESSAGE));
+
+    it('calls the dispatcher with send action and payload', () => {
+      const ENTER_KEY_CODE = 13;
+      dispatch.reset();
+      footerNode.find(INPUT_SELECTOR).simulate('keyPress', { which: ENTER_KEY_CODE });
+
+      expect(dispatch).to.have.been.calledOnce;
+      expect(dispatch).to.have.been.calledWith(sendMessage(MESSAGE));
     });
   });
 });
