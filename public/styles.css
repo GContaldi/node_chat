@@ -33,7 +33,7 @@ ul {
   margin: 1em 0.5em;
   height: 100%;
   width: 13%;
-  min-width: 5em;
+  min-width: 9em;
 }
 
 .sidebar--username {
@@ -99,17 +99,16 @@ input {
 }
 
 .message--me {
-  margin-left: 40%;
   text-align: right;
 }
 
 .message--others {
-  margin-right: 40%;
   text-align: left;
 }
 
 .message--content {
   display: inline-block;
+  word-wrap: break-word;
   margin: 0 1em;
 }
 
