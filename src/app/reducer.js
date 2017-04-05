@@ -10,11 +10,7 @@ const updateState = (oldState, changes) => {
   return Object.assign({}, oldState, changes);
 };
 
-const reducer = (state, action) => {
-  if (typeof state === 'undefined') {
-    return INITIAL_STATE;
-  }
-
+const reducer = (state = INITIAL_STATE, action = {}) => {
   switch (action.type) {
     case UPDATE_MESSAGE:
       return updateState(state, { newMessage: action.messageText });
