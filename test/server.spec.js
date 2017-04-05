@@ -14,7 +14,7 @@ describe('Server', function() {
         client.on('action', (action) => {
           if (action.type === ADD_MESSAGE) {
             expect(action.message).to.eql({
-              username: client.id,
+              username: client.id.substr(0, 6),
               text: MESSAGE_TEXT
             });
           }

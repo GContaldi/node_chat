@@ -19,12 +19,19 @@ server.listen(app.get('port'), function() {
   console.log('Simple node chat is running on port', app.get('port'));
 });
 
+const users = {};
+
 io.on('connection', function(socket) {
   console.log('Socket connected: ' + socket.id);
+
+  users[socket.id] = socket.id.substr(0, 6);
+
+  io.emit('action', actions.setUsername(users[socket.id]));
+
   socket.on('action', (action) => {
     if (action.type === actions.SEND_MESSAGE) {
       const payload = actions.addMessage({
-        username: socket.id,
+        username: users[socket.id],
         text: action.messageText
       });
       io.emit('action', payload);

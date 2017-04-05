@@ -15,8 +15,10 @@ describe('Chat', () => {
     { username: '2', text: 'b' }
   ];
 
+  const currentUsername = '1';
+
   before(() => {
-    const state = Object.assign({}, INITIAL_STATE, { messages: MESSAGES });
+    const state = Object.assign({}, INITIAL_STATE, { username: currentUsername, messages: MESSAGES });
     const store = fakeStore(state);
     const wrapper = mount(<Provider store={store}><Chat /></Provider>);
     chatNode = wrapper.find('[data-component="Chat"]');
@@ -31,6 +33,7 @@ describe('Chat', () => {
       chatNode.find(Message).forEach((node, index) => {
         expect(node.prop('text')).to.equal(MESSAGES[index].text);
         expect(node.prop('username')).to.equal(MESSAGES[index].username);
+        expect(node.prop('me')).to.equal(MESSAGES[index].username === currentUsername);
       });
     });
   });
