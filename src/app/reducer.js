@@ -1,6 +1,7 @@
-import { UPDATE_MESSAGE, SEND_MESSAGE, ADD_MESSAGE } from './actions';
+import { UPDATE_MESSAGE, SEND_MESSAGE, ADD_MESSAGE, SET_USERNAME } from './actions';
 
 const INITIAL_STATE = {
+  username: null,
   messages: [],
   newMessage: ''
 };
@@ -19,6 +20,8 @@ const reducer = (state, action) => {
       return updateState(state, { newMessage: action.messageText });
     case SEND_MESSAGE:
       return updateState(state, { newMessage: '' });
+    case SET_USERNAME:
+      return updateState(state, { username: action.username });
     case ADD_MESSAGE:
       return updateState(state, {
         messages: state.messages.concat([action.message])

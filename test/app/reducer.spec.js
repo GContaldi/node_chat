@@ -1,9 +1,10 @@
 import { expect } from 'chai';
-import { updateMessage, addMessage, sendMessage } from '../../src/app/actions';
+import { updateMessage, addMessage, sendMessage, setUsername } from '../../src/app/actions';
 import reducer from '../../src/app/reducer';
 
 describe('reducer', () => {
   const INITIAL_STATE = {
+    username: null,
     messages: [],
     newMessage: ''
   };
@@ -37,6 +38,13 @@ describe('reducer', () => {
       INITIAL_STATE.newMessage = TEXT;
       const actionPayload = sendMessage(TEXT);
       expect(reducer(INITIAL_STATE, actionPayload).newMessage).to.eql('');
+    });
+  });
+
+  describe('when setting the username', () => {
+    it('sets the username into the store', () => {
+      const actionPayload = setUsername('testUsername');
+      expect(reducer(INITIAL_STATE, actionPayload).username).to.eql('testUsername');
     });
   });
 });
