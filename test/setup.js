@@ -5,6 +5,10 @@ const win = doc.defaultView;
 
 global.document = doc;
 global.window = win;
+global.localStorage = {
+  setItem: () => {},
+  getItem: () => {}
+};
 
 Object.keys(window).forEach((key) => {
   if (!(key in global)) {
