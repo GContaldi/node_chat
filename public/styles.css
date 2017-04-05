@@ -31,13 +31,24 @@ ul {
 .sidebar {
   margin: 1em 0.5em;
   height: 100%;
-  width: 15%;
+  width: 13%;
   min-width: 5em;
 }
 
 .sidebar--username {
   margin: 0.5em;
+}
+
+.avatar {
+  margin-right: 1em;
+  display: inline-block;
+  padding: 0.4em;
+  background-color: orange;
+  color: white;
+  border-radius: 2em;
   text-align: center;
+  width: 2em;
+  height: 2em;
 }
 
 .chat {

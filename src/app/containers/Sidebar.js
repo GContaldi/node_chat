@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Avatar from '../components/Avatar';
+
 const Sidebar = (props) => (
   <div data-component="Sidebar">
     <ul>
       {
         props.users.map((user, index) => (
-          <li key={index} className="sidebar--username">{user}</li>)
-        )
+          <li key={index} className="sidebar--username">
+            <Avatar username={user} />
+            {user}
+          </li>
+        ))
       }
     </ul>
   </div>
